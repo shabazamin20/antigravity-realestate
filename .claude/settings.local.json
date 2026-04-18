@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/c/Users/hp/.m2/wrapper/dists/apache-maven-3.9.9-bin/4nf9hui3q3djbarqar9g711ggc/apache-maven-3.9.9/bin/mvn compile *)",
+      "Bash(export JAVA_HOME=\"/c/Program Files/Java/jdk1.8.0_311\")",
+      "Bash(export PATH=\"$JAVA_HOME/bin:$PATH\")",
+      "Bash(java -version)",
+      "Bash(javac -version)",
+      "Bash(pg_isready)",
+      "Bash(psql -U postgres -c \"SELECT 1\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
+      "Bash(curl -s http://localhost:8080/api/projects)"
+    ]
+  }
+}

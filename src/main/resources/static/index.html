@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" content="notranslate"/>
+  <title>Antigravity Real Estate — Find Your Dream Property</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<div class="spinner-overlay" id="spinner"><div class="spinner-ring"></div></div>
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">Antigravity<span>.</span></a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#projects"    data-i18n="nav_projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-it-works" data-i18n="nav_how">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact"     data-i18n="nav_contact">Contact</a></li>
+        <li class="nav-item ms-1">
+          <button class="lang-btn" id="langToggleBtn" onclick="I18N.toggle()">🌐 عربي</button>
+        </li>
+        <li class="nav-item ms-1">
+          <a class="nav-link btn-nav-cta" href="/admin.html" data-i18n="nav_admin">Admin Panel</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="hero-eyebrow">
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+          <span data-i18n="hero_eyebrow">Pakistan's Fastest Growing Real Estate</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Find Your Perfect</span><br/>
+          <span class="highlight" data-i18n="hero_title_2">Dream Property</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_sub">Discover premium residential and commercial projects curated for modern living. Premium locations, exceptional quality.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#projects" class="btn-hero-primary">
+            <span data-i18n="hero_btn_explore">Explore Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-hero-secondary" data-i18n="hero_btn_contact">Contact Us</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value" id="totalProjects">0</div>
+            <div class="hero-stat-label" data-i18n="hero_stat_total">Total Projects</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" id="ongoingCount">0</div>
+            <div class="hero-stat-label" data-i18n="hero_stat_ongoing">Ongoing</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" id="completedCount">0</div>
+            <div class="hero-stat-label" data-i18n="hero_stat_done">Completed</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Luxury Real Estate" loading="lazy"/>
+          <div class="hero-badge">
+            <div class="hero-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="hero-badge-text" data-i18n="hero_badge_text">Premium Properties</div>
+              <div class="hero-badge-value" data-i18n="hero_badge_val">Across Pakistan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-eyebrow" data-i18n="how_eyebrow">Our Process</span>
+      <h2 class="section-title" data-i18n="how_title">How It Works</h2>
+      <p class="section-subtitle mx-auto" data-i18n="how_sub">From discovery to ownership — we guide you every step of the way.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="how-step">
+          <div class="how-step-icon">🔍</div>
+          <div class="how-step-num" data-i18n="s1_num">Step 01</div>
+          <div class="how-step-title" data-i18n="s1_title">Browse Projects</div>
+          <p class="how-step-desc" data-i18n="s1_desc">Explore our curated collection of premium real estate projects across prime locations.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="how-step">
+          <div class="how-step-icon">📋</div>
+          <div class="how-step-num" data-i18n="s2_num">Step 02</div>
+          <div class="how-step-title" data-i18n="s2_title">Select Property</div>
+          <p class="how-step-desc" data-i18n="s2_desc">Choose from ongoing or completed developments that match your vision and budget.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="how-step">
+          <div class="how-step-icon">🤝</div>
+          <div class="how-step-num" data-i18n="s3_num">Step 03</div>
+          <div class="how-step-title" data-i18n="s3_title">Consult with Us</div>
+          <p class="how-step-desc" data-i18n="s3_desc">Meet our expert team to discuss investment details, payment plans, and legal aspects.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="how-step">
+          <div class="how-step-icon">🏠</div>
+          <div class="how-step-num" data-i18n="s4_num">Step 04</div>
+          <div class="how-step-title" data-i18n="s4_title">Own Your Dream</div>
+          <p class="how-step-desc" data-i18n="s4_desc">Complete the paperwork and move into your dream property with full legal security.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-5 gap-3">
+      <div>
+        <span class="section-eyebrow" data-i18n="proj_eyebrow">Our Portfolio</span>
+        <h2 class="section-title mb-1" data-i18n="proj_title">Featured Projects</h2>
+        <p class="section-subtitle" data-i18n="proj_sub">Handpicked properties for discerning buyers and investors.</p>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all"      data-i18n="f_all">All</button>
+        <button class="filter-btn"        data-filter="Ongoing"  data-i18n="f_ongoing">Ongoing</button>
+        <button class="filter-btn"        data-filter="Completed" data-i18n="f_done">Completed</button>
+      </div>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- CTA Strip -->
+<section class="section">
+  <div class="container">
+    <div class="cta-strip">
+      <div>
+        <h2 class="cta-strip-title" data-i18n="cta_title">Ready to Invest?</h2>
+        <p class="cta-strip-sub"    data-i18n="cta_sub">Talk to our expert consultants and start your real estate journey today.</p>
+      </div>
+      <a href="#contact" class="btn-cta" data-i18n="cta_btn">Get in Touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center mb-5">
+        <span class="section-eyebrow" data-i18n="contact_eyebrow">Contact Us</span>
+        <h2 class="section-title"     data-i18n="contact_title">Let's Talk Property</h2>
+        <p class="section-subtitle mx-auto" data-i18n="contact_sub">Our team is available to answer all your real estate questions.</p>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="how-step">
+          <div class="how-step-icon">📞</div>
+          <div class="how-step-title" data-i18n="contact_call_title">Call Us</div>
+          <p class="how-step-desc">+92 300 0000000<br/><span data-i18n="contact_call_hours">Mon – Sat, 9am – 7pm</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="how-step">
+          <div class="how-step-icon">✉️</div>
+          <div class="how-step-title" data-i18n="contact_email_title">Email Us</div>
+          <p class="how-step-desc">info@antigravity.pk<br/><span data-i18n="contact_email_reply">We reply within 24 hours</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="how-step">
+          <div class="how-step-icon">📍</div>
+          <div class="how-step-title" data-i18n="contact_visit_title">Visit Us</div>
+          <p class="how-step-desc">Blue Area, Islamabad<br/>Pakistan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">Antigravity<span>.</span></div>
+        <p style="font-size:.875rem;line-height:1.8;margin-top:.75rem;" data-i18n="footer_desc">Pakistan's most trusted real estate developer. Building dreams, shaping communities, and delivering value since 2010.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_company">Company</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" data-i18n="footer_about">About Us</a></li>
+          <li><a href="#" data-i18n="footer_careers">Careers</a></li>
+          <li><a href="#" data-i18n="footer_press">Press</a></li>
+          <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_projects">Projects</h6>
+        <ul class="list-unstyled">
+          <li><a href="#projects" data-i18n="footer_all">All Projects</a></li>
+          <li><a href="#projects" data-i18n="footer_ongoing">Ongoing</a></li>
+          <li><a href="#projects" data-i18n="footer_done">Completed</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_support">Support</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+          <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+          <li><a href="#" data-i18n="footer_terms">Terms</a></li>
+          <li><a href="#contact" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_follow">Follow Us</h6>
+        <ul class="list-unstyled">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2024 Antigravity Real Estate. All rights reserved.</span>
+      <span data-i18n="footer_love">Made with ❤️ in Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

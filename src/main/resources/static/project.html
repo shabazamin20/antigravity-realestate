@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" content="notranslate"/>
+  <title>Project Details — Antigravity Real Estate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <style>
+    .project-hero {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      background: var(--zinc-900);
+    }
+    .project-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .75;
+    }
+    .project-hero-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, var(--zinc-800), var(--zinc-900));
+    }
+    .project-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 60%, transparent 100%);
+    }
+    .project-hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2.5rem;
+    }
+    .project-detail-card {
+      background: var(--white);
+      border: 1px solid var(--zinc-200);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+    }
+    .detail-row {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--zinc-100);
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-icon {
+      width: 2.25rem; height: 2.25rem; flex-shrink: 0;
+      background: var(--zinc-50); border: 1px solid var(--zinc-200);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .detail-label { font-size: .72rem; font-weight: 700; color: var(--zinc-400); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem; }
+    .detail-value { font-size: .95rem; font-weight: 600; color: var(--zinc-900); }
+    .breadcrumb-item a { color: var(--orange); }
+    .breadcrumb-item.active { color: var(--zinc-500); }
+    .breadcrumb-item + .breadcrumb-item::before { color: var(--zinc-400); }
+    .related-card {
+      background: var(--white);
+      border: 1px solid var(--zinc-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: transparent; color: inherit; }
+    .related-card img { width: 100%; height: 160px; object-fit: cover; }
+    .related-card-body { padding: 1rem; }
+    .related-card-name { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; color: var(--zinc-900); }
+    .related-card-loc  { font-size: .78rem; color: var(--zinc-500); }
+    .not-found-state { text-align: center; padding: 6rem 2rem; }
+    .not-found-state .icon { font-size: 4rem; margin-bottom: 1.5rem; opacity: .4; }
+  </style>
+</head>
+<body>
+
+<!-- Spinner -->
+<div class="spinner-overlay" id="spinner">
+  <div class="spinner-ring"></div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">Antigravity<span>.</span></a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="/#projects"     data-i18n="nav_projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#how-it-works" data-i18n="nav_how">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contact"      data-i18n="nav_contact">Contact</a></li>
+        <li class="nav-item ms-1">
+          <button class="lang-btn" id="langToggleBtn" onclick="I18N.toggle()">🌐 عربي</button>
+        </li>
+        <li class="nav-item ms-1"><a class="nav-link btn-nav-cta" href="/admin.html" data-i18n="nav_admin">Admin Panel</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content (filled by JS) -->
+<div id="pageContent"></div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">Antigravity<span>.</span></div>
+        <p style="font-size:.875rem;line-height:1.8;margin-top:.75rem;" data-i18n="footer_desc">Pakistan's most trusted real estate developer. Building dreams, shaping communities, and delivering value since 2010.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_company">Company</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" data-i18n="footer_about">About Us</a></li>
+          <li><a href="#" data-i18n="footer_careers">Careers</a></li>
+          <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_projects">Projects</h6>
+        <ul class="list-unstyled">
+          <li><a href="/#projects" data-i18n="footer_all">All Projects</a></li>
+          <li><a href="/#projects" data-i18n="footer_ongoing">Ongoing</a></li>
+          <li><a href="/#projects" data-i18n="footer_done">Completed</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_support">Support</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+          <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+          <li><a href="/#contact" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 data-i18n="footer_follow">Follow Us</h6>
+        <ul class="list-unstyled"><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2024 Antigravity Real Estate. All rights reserved.</span>
+      <span data-i18n="footer_love">Made with ❤️ in Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/project.js"></script>
+</body>
+</html>
